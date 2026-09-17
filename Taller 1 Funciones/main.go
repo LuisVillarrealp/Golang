@@ -40,16 +40,15 @@ func main() {
 
 func opcion(numeroEstudiantes int) float64 {
 	nota := []float64
+	var sumaNotas float64 = 0.0
 	for contadorEstu := 1; contadorEstu <= numeroEstudiantes; contadorEstu++ {
 		fmt.Println("Ingrese la nota del estudiante del 0 al 100", contadorEstu, ":")
 		fmt.Scan(&nota)
-		SumaNotas := 0.0
-		for _, nota := range notas {
+		for _, nota := range nota {
 			sumaNotas += nota
 		}
 	}
-	PromedioNotas = float64
-	PromedioNotas = sumaNotas / float64(len(notas))
+	var promedioNotas float64 = sumaNotas / float64(len(nota))
 
 	if promedioNotas >= 70 {
 		fmt.Println("Aprobado")
@@ -57,13 +56,13 @@ func opcion(numeroEstudiantes int) float64 {
 		fmt.Println("Reprobado")
 	}
 	switch promedioNotas {
-	case promedioNotas >= 70 && promedioNotas >= 79:
+	case promedioNotas >= 70.0 && promedioNotas <= 79.99:
 		fmt.Println("Satisfactory performance")
-	case promedioNotas >= 80 && promedioNotas >= 89:
+	case promedioNotas >= 80.0 && promedioNotas <= 89.99:
 		fmt.Println("Good performance")
-	case promedioNotas >= 90 && promedioNotas >= 100:
+	case promedioNotas >= 90.0 && promedioNotas <= 100:
 		fmt.Println("Good performance")
-	case promedioNotas > 70:
+	case promedioNotas < 70:
 		fmt.Println("Needs improvement")
 	}
 
