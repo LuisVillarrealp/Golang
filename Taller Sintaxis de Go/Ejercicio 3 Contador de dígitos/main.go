@@ -7,13 +7,13 @@ func main() {
 	fmt.Println("Ingresa un numero entero positivo")
 	fmt.Scanf("%d", &n)
 
-	temperatura := n
+	num := n
 	var digitos int = 0
 	var suma int = 0
 
-	for temperatura > 0 {
-		suma += temperatura % 10
-		temperatura /= 10
+	for num > 0 {
+		suma += num % 10
+		num /= 10
 		digitos++
 	}
 
