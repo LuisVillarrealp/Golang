@@ -6,14 +6,17 @@ import (
 
 func main() {
 	var usrOpcion string
-	fmt.Println("Ingresa tu opcion del 1 al 4")
-	fmt.Println("La opcion 1 es para calcular la nota de estudiantes de un curso del 1 al 100")
-	fmt.Println("La opcion 2 es para calcular la suma desde 1 al numero elegido")
-	fmt.Println("La opcion 3 para convertir de Celsius a Farenheit")
-	fmt.Println("La opcion 4 es para convertir de Farenheit a Celsius")
-	fmt.Println("La opcion 0 o salir termina el programa")
-	fmt.Scan(&usrOpcion)
+	fmt.Println("Bienvenidos a este programa puedes realizar las siguientes opciones.")
+	fmt.Println("Cada que termines una opcion se te desplegara el menu con las opciones \n ")
 	for {
+		fmt.Println("			Menu")
+		fmt.Println("La opcion 1 es para calcular la nota de estudiantes de un curso del 1 al 100")
+		fmt.Println("La opcion 2 es para calcular la suma desde 1 al numero elegido")
+		fmt.Println("La opcion 3 para convertir de Celsius a Farenheit")
+		fmt.Println("La opcion 4 es para convertir de Farenheit a Celsius")
+		fmt.Println("La opcion 0 o 'salir' termina el programa. \n ")
+		fmt.Print("Ingresa tu opcion aqui: ")
+		fmt.Scan(&usrOpcion)
 		if usrOpcion == "1" {
 			fmt.Println("Ingrese el numero de estudiantes")
 			var numeroEstudiantes int
@@ -48,17 +51,19 @@ func main() {
 }
 
 func opcion(numeroEstudiantes int) float64 {
-	var nota []float64
+	var nota float64
 	var sumaNotas float64 = 0.0
+	var listaNotas []float64
 	for contadorEstu := 1; contadorEstu <= numeroEstudiantes; contadorEstu++ {
 		fmt.Println("Ingrese la nota del estudiante del 0 al 100", contadorEstu, ":")
 		fmt.Scan(&nota)
-		for _, nota := range nota {
+		listaNotas = append(listaNotas, nota)
+		for _, nota := range listaNotas {
 			sumaNotas += nota
 		}
 	}
 	var promedioNotas float64
-	promedioNotas = sumaNotas / float64(len(nota))
+	promedioNotas = sumaNotas / float64(len(listaNotas))
 
 	if promedioNotas >= 70 {
 		fmt.Println("Aprobado")
