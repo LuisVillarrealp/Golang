@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	var usrOpcion string
@@ -11,35 +13,42 @@ func main() {
 	fmt.Println("La opcion 4 es para convertir de Farenheit a Celsius")
 	fmt.Println("La opcion 0 o salir termina el programa")
 	fmt.Scan(&usrOpcion)
-	switch usrOpcion {
-	case usrOpcion == 1:
-		fmt.Println("Ingrese el numero de estudiantes")
-		var numeroEstudiantes int
-		fmt.Scan(&numeroEstudiantes)
-	case usrOpcion == 2:
-		fmt.Println("Ingresa un numero para calcular la suma")
-		var n int
-		fmt.Scan(&n)
-		fmt.Println("La suma de los numeros: ", totalSu)
-	case usrOpcion == 3:
-		fmt.Println("Ingresa una temperatura en Celsius para convertir a Farenheit")
-		var temperaturaCelsius float64
-		fmt.Scan(&temperaturaCelsius)
-		fmt.Println("La temperatura convertidad es ", opcion3(Farenheit))
-	case usrOpcion == 4:
-		fmt.Println("Ingresa una temperatura en Farenheit para convertir a Celsius")
-		var temperaturaFarenheit float64
-		fmt.Scan(&temperaturaFarenheit)
-		fmt.Println("La temperatura convertidad es ", opcion4(Celsius))
-	case usrOpcion == 0 && usrOpcion == "salir":
-		break
-	default:
-		fmt.Println("Opcion Invalida")
+	if usrOpcion == "0" || usrOpcion == "salir" {
+		return
+	} else {
+		switch usrOpcion {
+		case "1":
+			fmt.Println("Ingrese el numero de estudiantes")
+			var numeroEstudiantes int
+			fmt.Scan(&numeroEstudiantes)
+			promedioGeneral := opcion(numeroEstudiantes)
+			fmt.Println("El promedio de notas es: ", promedioGeneral)
+		case "2":
+			fmt.Println("Ingresa un numero para calcular la suma")
+			var n int
+			fmt.Scan(&n)
+			sumaNumFinal := opcion2(n)
+			fmt.Println("La suma de los numeros: ", sumaNumFinal)
+		case "3":
+			fmt.Println("Ingresa una temperatura en Celsius para convertir a Farenheit")
+			var temperaturaCelsius float64
+			fmt.Scan(&temperaturaCelsius)
+			Farenheit := opcion3(temperaturaCelsius)
+			fmt.Println("La temperatura convertidad es ", Farenheit)
+		case "4":
+			fmt.Println("Ingresa una temperatura en Farenheit para convertir a Celsius")
+			var temperaturaFarenheit float64
+			fmt.Scan(&temperaturaFarenheit)
+			Celsius := opcion4(temperaturaFarenheit)
+			fmt.Println("La temperatura convertidad es ", Celsius)
+		default:
+			fmt.Println("Opcion Invalida")
+		}
 	}
 }
 
 func opcion(numeroEstudiantes int) float64 {
-	nota := []float64
+	var nota []float64
 	var sumaNotas float64 = 0.0
 	for contadorEstu := 1; contadorEstu <= numeroEstudiantes; contadorEstu++ {
 		fmt.Println("Ingrese la nota del estudiante del 0 al 100", contadorEstu, ":")
@@ -48,35 +57,36 @@ func opcion(numeroEstudiantes int) float64 {
 			sumaNotas += nota
 		}
 	}
-	var promedioNotas float64 = sumaNotas / float64(len(nota))
+	var promedioNotas float64
+	promedioNotas = sumaNotas / float64(len(nota))
 
 	if promedioNotas >= 70 {
 		fmt.Println("Aprobado")
 	} else {
 		fmt.Println("Reprobado")
 	}
-	switch promedioNotas {
-	case promedioNotas >= 70.0 && promedioNotas <= 79.99:
+	switch {
+	case promedioNotas >= 70 && promedioNotas <= 79:
 		fmt.Println("Satisfactory performance")
-	case promedioNotas >= 80.0 && promedioNotas <= 89.99:
+	case promedioNotas >= 80 && promedioNotas <= 89:
 		fmt.Println("Good performance")
-	case promedioNotas >= 90.0 && promedioNotas <= 100:
+	case promedioNotas >= 90 && promedioNotas <= 100:
 		fmt.Println("Good performance")
 	case promedioNotas < 70:
 		fmt.Println("Needs improvement")
 	}
-
+	return promedioNotas
 }
 func opcion2(n int) int {
-	totalSu := 0
-	for contador := 1; contador <= n; contador++ {
-		var nota int
-		nota += totalSu
+	var totalSu int
+	for contadorsuma := 1; contadorsuma <= n; contadorsuma++ {
+		totalSu += contadorsuma
 	}
 	return totalSu
 }
 func opcion3(temperaturaCelsius float64) float64 {
-	var Farenheit float64 = ((temperaturaCelsius * (9 / 5)) + 32)
+	var Farenheit float64
+	Farenheit = ((temperaturaCelsius * (9 / 5)) + 32)
 	return Farenheit
 }
 func opcion4(temperaturaFarenheit float64) float64 {
