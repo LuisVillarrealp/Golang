@@ -6,42 +6,42 @@ import (
 
 func main() {
 	var usrOpcion string
-	fmt.Println("Ingresa tu opcion del 1 al 4 o 0 para salir ")
+	fmt.Println("Ingresa tu opcion del 1 al 4")
 	fmt.Println("La opcion 1 es para calcular la nota de estudiantes de un curso del 1 al 100")
 	fmt.Println("La opcion 2 es para calcular la suma desde 1 al numero elegido")
 	fmt.Println("La opcion 3 para convertir de Celsius a Farenheit")
 	fmt.Println("La opcion 4 es para convertir de Farenheit a Celsius")
 	fmt.Println("La opcion 0 o salir termina el programa")
 	fmt.Scan(&usrOpcion)
-	if usrOpcion == "0" || usrOpcion == "salir" {
-		return
-	} else {
-		switch usrOpcion {
-		case "1":
+	for {
+		if usrOpcion == "1" {
 			fmt.Println("Ingrese el numero de estudiantes")
 			var numeroEstudiantes int
 			fmt.Scan(&numeroEstudiantes)
 			promedioGeneral := opcion(numeroEstudiantes)
 			fmt.Println("El promedio de notas es: ", promedioGeneral)
-		case "2":
+		} else if usrOpcion == "2" {
 			fmt.Println("Ingresa un numero para calcular la suma")
 			var n int
 			fmt.Scan(&n)
 			sumaNumFinal := opcion2(n)
 			fmt.Println("La suma de los numeros: ", sumaNumFinal)
-		case "3":
+		} else if usrOpcion == "3" {
 			fmt.Println("Ingresa una temperatura en Celsius para convertir a Farenheit")
 			var temperaturaCelsius float64
 			fmt.Scan(&temperaturaCelsius)
 			Farenheit := opcion3(temperaturaCelsius)
 			fmt.Println("La temperatura convertidad es ", Farenheit)
-		case "4":
+		} else if usrOpcion == "4" {
 			fmt.Println("Ingresa una temperatura en Farenheit para convertir a Celsius")
 			var temperaturaFarenheit float64
 			fmt.Scan(&temperaturaFarenheit)
 			Celsius := opcion4(temperaturaFarenheit)
 			fmt.Println("La temperatura convertidad es ", Celsius)
-		default:
+		} else if usrOpcion == "0" || usrOpcion == "salir" {
+			fmt.Println("Saliendo del programa")
+			break
+		} else {
 			fmt.Println("Opcion Invalida")
 		}
 	}
@@ -86,7 +86,7 @@ func opcion2(n int) int {
 }
 func opcion3(temperaturaCelsius float64) float64 {
 	var Farenheit float64
-	Farenheit = ((temperaturaCelsius * (9 / 5)) + 32)
+	Farenheit = ((temperaturaCelsius * 9 / 5) + 32)
 	return Farenheit
 }
 func opcion4(temperaturaFarenheit float64) float64 {
