@@ -21,7 +21,7 @@ func main() {
 			fmt.Println("1. Euros")
 			fmt.Println("2. Libras")
 			fmt.Println("3. Won")
-			fmt.Println("1. Bitcoin")
+			fmt.Println("4. Bitcoin")
 			fmt.Printf("Ingresa a que moneda quieres cambiar: ")
 			fmt.Scan(&usrOpcionMoneda)
 			fmt.Printf("Ingresa que cantidad de dolares quieres convertir: ")
@@ -45,9 +45,7 @@ func main() {
 		} else if usrOpcion == "2" {
 			var frase string
 			fmt.Println("Contador de Vocales")
-			fmt.Println("Ingresa tu frase para contar las vocales en tu frase: ")
-			fmt.Printf("Tu Frase aqui: ")
-			fmt.Scan(&frase)
+			fmt.Println("Ingresa tu frase para que el programa cuente las vocales: ")
 			a, e, i, o, u := contadorvocales.ContarVocales(frase)
 			fmt.Println("La letra a se repite: ", a, " veces")
 			fmt.Println("La letra e se repite: ", e, " veces")
