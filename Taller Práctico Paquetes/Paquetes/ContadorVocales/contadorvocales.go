@@ -28,7 +28,7 @@ func ContarVocales(frase string) (int, int, int, int, int) {
 			i++
 		case 'o', 'O', 'ó', 'Ó':
 			o++
-		case 'u', 'U', 'ú', 'Ú':
+		case 'u', 'U', 'ú', 'Ú', 'ü', 'Ü':
 			u++
 		}
 	}
