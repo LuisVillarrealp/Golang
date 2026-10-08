@@ -6,7 +6,7 @@ func main() {
 	var notas [6][4]float64
 	var promedios []float64
 
-	fmt.Println("Analisis de Notas de Estudiantes")
+	fmt.Println("Bienvenido al analisis de notas de estudiantes")
 	for contadorEstudiante := 0; contadorEstudiante < 6; contadorEstudiante++ {
 		for contadorNotaEstudiante := 0; contadorNotaEstudiante < 4; contadorNotaEstudiante++ {
 			fmt.Println("Ingresa la nota del estudiante", contadorEstudiante+1, "en la materia", contadorNotaEstudiante+1, ": ")
