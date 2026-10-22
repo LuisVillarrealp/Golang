@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
+type Producto struct {
+	Nombre string
+	precio float64
+	stock  int
+}
 func main() {
-	type Producto struct {
-		Nombre string
-		precio float64
-		stock  int
-	}
 	product := Producto{}
 
 	product.Nombre = "Intel Core Ultra 7"
@@ -24,5 +24,5 @@ func main() {
 }
 func calcularStock(p Producto)float64{
 //multiplicar la cantidad por el precio 
-
+	return p.precio * float64(p.stock) 
 }
