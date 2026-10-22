@@ -22,3 +22,7 @@ func main() {
 	fmt.Println(product)
 	fmt.Println(product2)
 }
+func calcularStock(p Producto)float64{
+//multiplicar la cantidad por el precio 
+
+}
