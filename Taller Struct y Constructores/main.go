@@ -74,7 +74,7 @@ func main() {
 		fmt.Println("\n			1. Crear o Agregar un nuevo producto")
 		fmt.Println("			2. Actualizar Precio")
 		fmt.Println("			3. Actualizar Cantidad")
-		fmt.Println("			4. Mostar Informacion de un Producto")
+		fmt.Println("			4. Mostrar Informacion de un Producto")
 		fmt.Println("			5. Eliminar un producto")
 		fmt.Println("			6. Buscar producto")
 		fmt.Println("			7. Listar todos los productos")
