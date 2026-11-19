@@ -81,9 +81,7 @@ func OperarDispositivo(d Dispositivo) {
 
 func main() {
 	router := &Router{
-		Nombre:    "Cisco",
-		Encendido: false,
-		Encendido: false,
+		Nombre: "Cisco",
 	}
 	servidor := &Servidor{
 		Nombre: "Servidor Web",
