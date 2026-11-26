@@ -40,7 +40,7 @@ func NuevoProductoAlimento(id int, nombre string, precio float64, cantidad int, 
 }
 
 type InformacionProducto interface {
-	MostrarInfo()
+	MostrarInfo() string
 }
 
 type Inventario struct {
@@ -53,23 +53,23 @@ func (i *Inventario) AgregarProducto(p InformacionProducto) {
 
 func (i *Inventario) ListarProductos() {
 	for _, p := range i.Productos {
-		p.MostrarInfo()
+		fmt.Println(p.MostrarInfo())
 	}
 }
 
-func (p *ProductoBase) MostrarInfo() {
-	fmt.Println("El producto es el siguiente: ", p.ID)
-	fmt.Println("El nombre del producto es el siguiente: ", p.Nombre)
-	fmt.Println("El precio del producto es el siguiente: ", p.Precio)
-	fmt.Println("La cantidad del producto es el siguiente: ", p.Cantidad)
+func (p *ProductoBase) MostrarInfo() string {
+	return fmt.Sprintf("El producto es el siguiente: %d\n"+
+		"El nombre del producto es el siguiente: %s\n"+
+		"El precio del producto es el siguiente: %.2f\n"+
+		"La cantidad del producto es el siguiente: %d", p.ID, p.Nombre, p.Precio, p.Cantidad)
 }
-func (e *Electronico) MostrarInfo() {
-	e.ProductoBase.MostrarInfo()
-	fmt.Println("La garantia del producto en meses es el siguiente: ", e.GarantiaMeses)
+func (e *Electronico) MostrarInfo() string {
+	return fmt.Sprintf("%s\nLa garantia del producto en meses es el siguiente: %d",
+		e.ProductoBase.MostrarInfo(), e.GarantiaMeses)
 }
-func (a *Alimento) MostrarInfo() {
-	a.ProductoBase.MostrarInfo()
-	fmt.Println("La fecha de expiracion del producto es el siguiente: ", a.FechaExpiracion)
+func (a *Alimento) MostrarInfo() string {
+	return fmt.Sprintf("%s\nLa fecha de expiracion del producto es el siguiente: %s",
+		a.ProductoBase.MostrarInfo(), a.FechaExpiracion)
 }
 
 func main() {
